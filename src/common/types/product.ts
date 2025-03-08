@@ -19,4 +19,5 @@ export interface Product {
   discount_percentage?: number // Porcentaje de descuento a nivel de producto (opcional)
   createdAt: string // Fecha de creación en formato ISO (ej: "2023-10-01T12:00:00Z")
   updatedAt: string // Última actualización en formato ISO
+  stock?: number
 }

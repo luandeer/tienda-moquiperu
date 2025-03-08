@@ -15,7 +15,7 @@ const ProductView = ({ productHandle }: { productHandle: string }) => {
     id: 1,
     nombre: 'Oferta Lote',
     precio: 'S/45.00',
-    imagenes: ['/banner4.jpg', '/banner4.jpg']
+    imagenes: ['/banner4.jpg', '/adorno-footer.png']
   }
 
   // Productos relacionados
@@ -43,25 +43,27 @@ const ProductView = ({ productHandle }: { productHandle: string }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Barra de navegación */}
-      <header className="flex items-center border-b p-4">
-        <Link href="#" className="flex items-center text-gray-800">
-          <ChevronLeft className="mr-1 h-5 w-5" />
-          <span>Volver</span>
-        </Link>
-        <div className="flex flex-1 justify-center">
-          <div className="flex items-center space-x-2 text-sm">
-            <Link href="#" className="flex items-center">
-              <Home className="h-4 w-4" />
-            </Link>
-            <ChevronRight className="text-muted-foreground h-4 w-4" />
-            <Link href="#" className="text-muted-foreground">
-              products
-            </Link>
-            <ChevronRight className="text-muted-foreground h-4 w-4" />
-            <span>{product.nombre}</span>
+      <div className="border-b">
+        <div className="container mx-auto flex w-full items-center justify-between py-4">
+          <Link href="#" className="flex w-full items-center text-gray-800">
+            <ChevronLeft className="mr-1 h-5 w-5" />
+            <span>Volver</span>
+          </Link>
+          <div className="w-full">
+            <div className="flex w-full items-center justify-end space-x-2 text-sm">
+              <Link href="#" className="flex items-center">
+                <Home className="h-4 w-4" />
+              </Link>
+              <ChevronRight className="text-muted-foreground h-4 w-4" />
+              <Link href="#" className="text-muted-foreground">
+                products
+              </Link>
+              <ChevronRight className="text-muted-foreground h-4 w-4" />
+              <span>{product.nombre}</span>
+            </div>
           </div>
         </div>
-      </header>
+      </div>
 
       <main className="mx-auto max-w-6xl p-4">
         <div className="grid gap-8 md:grid-cols-2">

@@ -18,7 +18,7 @@ export default async function PageDashboard(props: { children: React.ReactNode }
   return (
     <div className="mx-auto flex max-w-4xl items-start gap-10 py-20">
       <AccountNavLinks />
-      {props.children}
+      <div className="w-full">{props.children}</div>
     </div>
   )
 }

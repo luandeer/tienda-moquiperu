@@ -14,17 +14,13 @@ const Overview = ({ customer, orders }: OverviewProps) => {
   return (
     <div>
       <div>
-        <div className="text-xl-semi mb-4 flex items-center justify-between">
-          <span data-testid="welcome-message" data-value={customer?.first_name}>
-            Hola {customer?.first_name}
+        <div className="text-xl-semi mb-4 flex w-full items-center justify-between">
+          <span className="text-xl font-medium" data-value={customer?.first_name}>
+            Hola {customer?.first_name}!
           </span>
-          <span className="text-small-regular text-ui-fg-base">
-            Inició sesión como:{' '}
-            <span
-              className="font-semibold"
-              data-testid="customer-email"
-              data-value={customer?.email}
-            >
+          <span className="text-sm">
+            Ingresaste como:{' '}
+            <span className="font-semibold" data-value={customer?.email}>
               {customer?.email}
             </span>
           </span>
@@ -33,66 +29,59 @@ const Overview = ({ customer, orders }: OverviewProps) => {
           <div className="col-span-1 row-span-2 flex h-full flex-1 flex-col gap-y-4">
             <div className="mb-6 flex items-start gap-x-16">
               <div className="flex flex-col gap-y-4">
-                <h3 className="text-large-semi">Perfil</h3>
-                <div className="flex items-end gap-x-2">
+                <h3 className="font-medium">Perfil</h3>
+                <div className="flex items-end gap-x-2 rounded-xl border border-gray-200 bg-gray-50 p-4">
                   <span
-                    className="text-3xl-semi leading-none"
-                    data-testid="customer-profile-completion"
+                    className="text-3xl leading-none font-semibold"
                     data-value={getProfileCompletion(customer)}
                   >
                     {getProfileCompletion(customer)}%
                   </span>
-                  <span className="text-base-regular text-ui-fg-subtle uppercase">Completado</span>
+                  <span className="text-sm text-gray-800 uppercase">Completado</span>
                 </div>
               </div>
 
               <div className="flex flex-col gap-y-4">
-                <h3 className="text-large-semi">Dirección</h3>
-                <div className="flex items-end gap-x-2">
+                <h3 className="font-medium">Dirección</h3>
+                <div className="flex items-end gap-x-2 rounded-xl border border-gray-200 bg-gray-50 p-4">
                   <span
-                    className="text-3xl-semi leading-none"
-                    data-testid="addresses-count"
+                    className="text-3xl leading-none font-semibold"
                     data-value={customer?.addresses?.length || 0}
                   >
                     {customer?.addresses?.length || 0}
                   </span>
-                  <span className="text-base-regular text-ui-fg-subtle uppercase">Guardado</span>
+                  <span className="text-sm text-gray-800 uppercase">Guardado</span>
                 </div>
               </div>
             </div>
 
             <div className="flex flex-col gap-y-4">
               <div className="flex items-center gap-x-2">
-                <h3 className="text-large-semi">Ordenes Recientes</h3>
+                <h3 className="font-medium">Ordenes Recientes</h3>
               </div>
-              <ul className="flex flex-col gap-y-4" data-testid="orders-wrapper">
+              <ul className="flex flex-col gap-y-4">
                 {orders && orders.length > 0 ? (
                   orders.slice(0, 5).map((order) => {
                     return (
                       <li key={order.id} data-testid="order-wrapper" data-value={order.id}>
                         <CustomizeLink href={`account/orders/details/${order.id}`}>
-                          <div className="flex items-center justify-between bg-gray-50 p-4">
-                            <div className="text-small-regular grid flex-1 grid-cols-3 grid-rows-2 gap-x-4">
+                          <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-gray-50 p-4">
+                            <div className="grid flex-1 grid-cols-3 grid-rows-2 gap-x-4 text-sm">
                               <span className="font-semibold">Fecha de colocación</span>
                               <span className="font-semibold">Número de orden</span>
                               <span className="font-semibold">Importe total</span>
                               <span data-testid="order-created-date">
                                 {new Date(order.created_at).toDateString()}
                               </span>
-                              <span data-testid="order-id" data-value={order.display_id}>
-                                #{order.display_id}
-                              </span>
-                              <span data-testid="order-amount">
+                              <span data-value={order.display_id}>#{order.display_id}</span>
+                              <span>
                                 {convertToLocale({
                                   amount: order.summary.total,
                                   currency_code: order.currency_code
                                 })}
                               </span>
                             </div>
-                            <button
-                              className="flex items-center justify-between"
-                              data-testid="open-order-button"
-                            >
+                            <button className="flex items-center justify-between">
                               <span className="sr-only">Ir a la orden #{order.display_id}</span>
                               <ChevronDown className="-rotate-90" />
                             </button>
@@ -102,7 +91,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                     )
                   })
                 ) : (
-                  <span data-testid="no-orders-message">No hay ordenes recientes.</span>
+                  <span>No hay ordenes recientes.</span>
                 )}
               </ul>
             </div>

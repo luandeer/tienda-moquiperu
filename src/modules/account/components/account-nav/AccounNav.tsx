@@ -14,18 +14,18 @@ const links = [
   },
   {
     name: 'Direccion',
-    href: '/Addresses',
+    href: '/account/dashboard/addresses',
     icon: MapPin
   },
   {
     name: 'Órdernes',
-    href: '/dudas',
+    href: '/account/dashboard/orders',
     icon: Package
   }
 ]
 export const AccountNavLinks = () => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex w-full max-w-[140px] flex-col gap-2">
       {links.map((link) => {
         return <ActiveLinks key={link.name} {...link} />
       })}
