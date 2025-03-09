@@ -15,7 +15,7 @@ export default async function ProductPreview({
   })
 
   return (
-    <CustomizeLink href={`products/${1}`} className="group">
+    <CustomizeLink href={`products/${product.name}`} className="group">
       <div>
         <Thumbnail images={product.images} size="square" />
         <div className="txt-compact-medium mt-4 flex justify-between">
