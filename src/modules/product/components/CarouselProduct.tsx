@@ -12,28 +12,6 @@ const CauroselProduct = ({ imagenes }: { imagenes: string[] }) => {
   const imageRef = useRef<HTMLDivElement>(null)
   const thumbnailsRef = useRef<HTMLDivElement>(null)
 
-  // Productos relacionados
-  // const productosRelacionados = [
-  //   {
-  //     id: 1,
-  //     nombre: 'Oferta Familiar',
-  //     precio: 'S/45.00',
-  //     imagen: '/placeholder.svg?height=200&width=200'
-  //   },
-  //   {
-  //     id: 2,
-  //     nombre: 'Combo Individual',
-  //     precio: 'S/22.50',
-  //     imagen: '/placeholder.svg?height=200&width=200'
-  //   },
-  //   {
-  //     id: 3,
-  //     nombre: 'Oferta Especial',
-  //     precio: 'S/55.00',
-  //     imagen: '/placeholder.svg?height=200&width=200'
-  //   }
-  // ]
-
   // Navegar a la imagen anterior
   const prevImage = () => {
     setActiveImageIndex((prev) => (prev === 0 ? imagenes.length - 1 : prev - 1))

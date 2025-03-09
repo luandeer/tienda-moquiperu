@@ -1,9 +1,8 @@
-import { Suspense } from 'react'
-
 import Image from 'next/image'
+import { auth } from 'raiz/auth'
+import CartMini from 'raiz/src/modules/cart/components/CartMini'
 import CustomizeLink from '../CustomizeLink'
 import SideMenu from '../side-menu/SideMenu'
-import { auth } from 'raiz/auth'
 import { UserDropdownMenu } from './ProfileTop'
 
 export default async function Header() {
@@ -53,7 +52,8 @@ export default async function Header() {
               </div>
             )}
 
-            <Suspense
+            <CartMini />
+            {/* <Suspense
               fallback={
                 <CustomizeLink
                   className="hover:text-ui-fg-base flex gap-2 !text-white"
@@ -64,8 +64,8 @@ export default async function Header() {
               }
             >
               cart
-              {/* <CartButton /> */}
-            </Suspense>
+            
+            </Suspense> */}
           </div>
         </nav>
       </header>
