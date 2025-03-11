@@ -3,7 +3,7 @@ import { Info, ShoppingCart } from 'lucide-react'
 import { Badge } from 'raiz/src/common/components/ui/badge'
 import { Button } from 'raiz/src/common/components/ui/button'
 import { mockProducts } from 'raiz/src/common/data/dataTest'
-import { formatPricePEN } from 'raiz/src/lib/utils'
+import { cn, formatPricePEN } from 'raiz/src/lib/utils'
 import useCartStore from 'raiz/src/store/useCartStore'
 import { useEffect, useState } from 'react'
 import CauroselProduct from './CarouselProduct'
@@ -13,7 +13,7 @@ const Product = ({ productHandle }: { productHandle: string }) => {
   // esto se va a pedir con un fetch a la api por ahora esta en objectos y arrays
   // const product=getProduct(productHandle)
 
-  const { items, addItem } = useCartStore()
+  const { items, addItem, removeItem } = useCartStore()
 
   const findProduct = mockProducts.find(
     (product) => product.name == decodeURIComponent(productHandle)
@@ -50,13 +50,11 @@ const Product = ({ productHandle }: { productHandle: string }) => {
   //   images: ['/banner4.jpg']
   // }
 
-  // .filter(
-  //   (product) => product.category === collection.title // Puedes hacer un filtro por categoría, por ejemplo
-  // )
-
   if (!findProduct) {
     return <div>Producto no encontrado</div>
   }
+
+  const isInCart = items.find((item) => item.id == findProduct?.id)
 
   // Calcular precio total
   const precioUnitario = product.price
@@ -133,15 +131,28 @@ const Product = ({ productHandle }: { productHandle: string }) => {
 
         {/* Botones de acción */}
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Button
-            onClick={() => {
-              addItem(product)
-            }}
-            className="h-auto flex-1 cursor-pointer rounded-xl bg-[#0f0f0f] py-3.5 text-white shadow-md transition-transform hover:scale-[1.02]"
-          >
-            <ShoppingCart className="mr-2 h-5 w-5" />
-            Agregar al carrito
-          </Button>
+          {isInCart ? (
+            <Button
+              onClick={() => removeItem(product.id)}
+              className={cn(
+                'h-auto flex-1 cursor-pointer rounded-xl bg-[#e03737] py-3.5 text-white shadow-md transition-transform hover:scale-[1.02] hover:bg-[#e03737]'
+              )}
+            >
+              <ShoppingCart className="mr-2 h-5 w-5" />
+              Eliminar del carrito
+            </Button>
+          ) : (
+            <Button
+              onClick={() => addItem(product)}
+              className={cn(
+                'h-auto flex-1 cursor-pointer rounded-xl bg-[#0f0f0f] py-3.5 text-white shadow-md transition-transform hover:scale-[1.02]'
+              )}
+            >
+              <ShoppingCart className="mr-2 h-5 w-5" />
+              Agregar al carrito
+            </Button>
+          )}
+
           {/* <Button
                 variant="outline"
                 className="flex-1 cursor-pointer rounded-xl border-gray-200 bg-white py-6 text-gray-800 hover:bg-gray-50"
