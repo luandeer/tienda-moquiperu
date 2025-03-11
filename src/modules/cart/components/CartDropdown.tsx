@@ -48,14 +48,14 @@ const CartDropdown = () => {
               <div className="mt-4 grid gap-2">
                 <Button asChild={true} className="w-full">
                   <Link href="/cart" onClick={closeCart} passHref>
-                    Go to cart
+                    Ir al carrito
                   </Link>
                 </Button>
-                <Button asChild variant="secondary" className="w-full">
+                {/* <Button asChild variant="secondary" className="w-full">
                   <Link href="/checkout" onClick={closeCart}>
                     Go to checkout
                   </Link>
-                </Button>
+                </Button> */}
               </div>
             </div>
           </>

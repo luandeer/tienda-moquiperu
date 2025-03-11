@@ -7,9 +7,7 @@ import { Separator } from '@/common/components/ui/separator'
 import Link from 'next/link'
 
 const CartSummary = () => {
-  const { items } = useCartStore()
   const subtotal = useCartStore((state) => state.subtotal())
-  console.log({ subtotal, items })
 
   // Fixed values for the example
   const shipping = 0

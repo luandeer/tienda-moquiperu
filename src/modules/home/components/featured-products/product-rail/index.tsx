@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import ProductPreview from '@/modules/products/components/product-preview'
 import Link from 'next/link'
+import CardProduct from 'raiz/src/common/components/cardProduct/CardProduct'
 import { mockProducts } from 'raiz/src/common/data/dataTest'
 import { Product } from 'raiz/src/modules/products/type/product'
 
@@ -24,7 +24,7 @@ export default async function ProductRail({ collection }: { collection: any }) {
         {pricedProducts &&
           pricedProducts.slice(0, 3).map((product: Product) => (
             <li key={product.id}>
-              <ProductPreview product={product} isFeatured />
+              <CardProduct product={product} isFeatured />
             </li>
           ))}
       </ul>

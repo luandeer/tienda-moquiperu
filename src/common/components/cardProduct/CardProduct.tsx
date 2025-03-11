@@ -1,15 +1,10 @@
 import CustomizeLink from '@/common/components/CustomizeLink'
-import Thumbnail from '../thumbnail'
-import PreviewPrice from './price'
 import { getProductPrice } from '@/lib/utils/get-product-price'
-import { Product } from '../../type/product'
+import { Product } from '../../types/product'
+import Thumbnail from './components/Thumbnail'
+import PreviewPrice from './components/PreviewPrice'
 
-export default async function ProductPreview({
-  product
-}: {
-  product: Product
-  isFeatured?: boolean
-}) {
+export default async function CardProduct({ product }: { product: Product; isFeatured?: boolean }) {
   const { cheapestPrice } = getProductPrice({
     product
   })
@@ -18,7 +13,7 @@ export default async function ProductPreview({
     <CustomizeLink href={`products/${product.name}`} className="group">
       <div>
         <Thumbnail images={product.images} size="square" />
-        <div className="txt-compact-medium mt-4 flex justify-between">
+        <div className="txt-compact-medium mt-4 flex items-center justify-between">
           <div className="text-ui-fg-subtle">{product.name}</div>
           <div className="flex items-center gap-x-2">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}

@@ -8,7 +8,17 @@ export const mockProducts: Product[] = [
     name: 'Camiseta Deportiva',
     description: 'Camiseta transpirable ideal para entrenamientos.',
     category: 'Ropa',
-    images: ['/banner4.jpg'],
+    images: [
+      '/banner4.jpg',
+      '/image.png',
+      '/banner4.jpg',
+      '/banner4.jpg',
+      '/banner4.jpg',
+      '/banner4.jpg',
+      '/banner4.jpg',
+      '/banner4.jpg',
+      '/banner4.jpg'
+    ],
     variants: [
       // Este producto tiene variantes
       {

@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
+import CardProduct from 'raiz/src/common/components/cardProduct/CardProduct'
 
 import SkeletonProductGrid from 'raiz/src/common/components/skeletons/templates/skeleton-product-grid'
 import { mockProducts } from 'raiz/src/common/data/dataTest'
 import { Product } from 'raiz/src/common/types/product'
-import ProductPreview from 'raiz/src/modules/products/components/product-preview'
 import { Suspense } from 'react'
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default async function StorePage() {
           <ul className="grid grid-cols-2 gap-x-6 gap-y-24 md:grid-cols-3 md:gap-y-36">
             {mockProducts.map((product: Product) => (
               <li key={product.id}>
-                <ProductPreview product={product} isFeatured />
+                <CardProduct product={product} isFeatured />
               </li>
             ))}
           </ul>

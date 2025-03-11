@@ -19,9 +19,9 @@ const CartItems = () => {
         {/* <CartTableHeader /> */}
         <thead className="text-left">
           <tr className="border-b">
-            <th className="pb-4 font-medium">Item</th>
-            <th className="pb-4 text-center font-medium">Quantity</th>
-            <th className="pb-4 text-right font-medium">Price</th>
+            <th className="pb-4 font-medium">Producto</th>
+            <th className="pb-4 text-center font-medium">Cantidad</th>
+            <th className="pb-4 text-right font-medium">Precio</th>
             <th className="pb-4 text-right font-medium">Total</th>
           </tr>
         </thead>
