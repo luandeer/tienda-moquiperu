@@ -8,7 +8,7 @@ const CartItems = () => {
   if (items.length === 0) {
     return (
       <div className="rounded-md border p-8 text-center">
-        <p className="text-muted-foreground mb-4">Your cart is empty</p>
+        <p className="text-muted-foreground mb-4">Tu carrito esta vacío.</p>
       </div>
     )
   }

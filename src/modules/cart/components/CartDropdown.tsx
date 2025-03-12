@@ -32,7 +32,7 @@ const CartDropdown = () => {
         </h2>
 
         {items.length === 0 ? (
-          <p className="text-muted-foreground py-4 text-center">Your cart is empty</p>
+          <p className="text-muted-foreground py-4 text-center">Tu carrito esta vacío.</p>
         ) : (
           <>
             <div className="max-h-[300px] space-y-4 overflow-auto">

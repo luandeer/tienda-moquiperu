@@ -12,10 +12,9 @@ import {
 } from '../ui/sheet'
 
 const SideMenuItems = {
-  Inicio: '/',
-  Tienda: '/store',
-  Cuenta: '/account',
-  Carrito: '/cart'
+  Inicio: '',
+  Tienda: 'store',
+  Carrito: 'cart'
 }
 
 const SideMenu = () => {
@@ -42,9 +41,11 @@ const SideMenu = () => {
                 {Object.entries(SideMenuItems).map(([name, href]) => {
                   return (
                     <li key={name}>
-                      <CustomizeLink href={href} className="text-3xl leading-10 text-[#030F27]">
-                        {name}
-                      </CustomizeLink>
+                      <SheetTrigger asChild>
+                        <CustomizeLink href={href} className="text-3xl leading-10 text-[#030F27]">
+                          {name}
+                        </CustomizeLink>
+                      </SheetTrigger>
                     </li>
                   )
                 })}
