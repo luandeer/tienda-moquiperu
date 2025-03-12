@@ -36,7 +36,7 @@ export default function ReviewPage() {
           <strong>Método de Pago:</strong> Visa
         </p>
       </div>
-      <Button onClick={handleConfirm}>Confirmar Pedido</Button>
+      <Button onClick={handleConfirm}>Realizar Pedido</Button>
     </div>
   )
 }
