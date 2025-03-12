@@ -3,6 +3,7 @@ import { CheckCircle, Circle, Undo2Icon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { formatPricePEN } from 'raiz/src/lib/utils'
 
 const steps = [
   { name: 'Dirección', path: '/checkout/shipping' },
@@ -85,30 +86,30 @@ export default function CheckoutLayout({ children }: { children: React.ReactNode
             <h2 className="text-xl font-semibold">Tu Carrito</h2>
 
             <div>
-              <div className="space-y-4 p-4">
-                <div className="flex items-start space-x-4">
+              <div className="space-y-4">
+                {/* <div className="flex items-start space-x-4">
                   <div className="relative h-20 w-20 overflow-hidden rounded-md border">image</div>
                   <div className="flex-1 space-y-1">
                     <h3 className="font-medium">Mochila Premium</h3>
                     <p className="text-sm text-gray-500">Variante: Negro</p>
-                    <p className="text-sm font-medium">$99.00</p>
+                    <p className="text-sm font-medium">S/99.00</p>
                   </div>
-                </div>
+                </div> */}
 
                 <hr className="border-gray-200" />
 
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
                     <span className="text-sm">Subtotal</span>
-                    <span className="font-medium">$99.00</span>
+                    <span className="font-medium">S/99.00</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm">Envío</span>
-                    <span className="font-medium">$12321321</span>
+                    <span className="font-medium">S/08.00</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm">Impuestos</span>
-                    <span className="font-medium">$10.00</span>
+                    <span className="font-medium">S/00.00</span>
                   </div>
                 </div>
 
@@ -116,8 +117,35 @@ export default function CheckoutLayout({ children }: { children: React.ReactNode
 
                 <div className="flex items-center justify-between font-medium">
                   <span>Total</span>
-                  <span>$12321</span>
+                  <span>S/400.00</span>
                 </div>
+                <hr className="border-gray-200" />
+
+                <div className="flex items-center gap-3 py-2">
+                  <div className="bg-secondary h-[70px] w-[70px] flex-shrink-0 overflow-hidden rounded-md">
+                    <Image
+                      src="/producto2.png"
+                      alt="imagen"
+                      width={70}
+                      height={70}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <h3 className="truncate text-sm font-medium">Conjunto Diferencial</h3>
+                    <p className="text-muted-foreground text-sm">Cantidad: 2</p>
+                  </div>
+
+                  <div className="flex flex-col items-end">
+                    <span className="text-muted-foreground text-xs line-through">
+                      {formatPricePEN(199)}
+                    </span>
+                    <span className="text-sm font-medium text-blue-600">{formatPricePEN(99)}</span>
+                  </div>
+                </div>
+
+                <hr className="border-gray-200" />
               </div>
             </div>
           </div>
