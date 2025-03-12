@@ -9,6 +9,9 @@ import Link from 'next/link'
 export default function CartDropdownItem({ item }: { item: CartItem }) {
   const { removeItem } = useCartStore()
 
+  const precio = item.price || 0
+  const porcentajeDescuento = item.discount_percentage || 0
+  const precioDescuento = precio - precio * (porcentajeDescuento / 100)
   return (
     <Link href={`/products/${item.name}`} className="flex items-center gap-3 py-2">
       <div className="bg-secondary h-[70px] w-[70px] flex-shrink-0 overflow-hidden rounded-md">
@@ -41,10 +44,12 @@ export default function CartDropdownItem({ item }: { item: CartItem }) {
       </div>
 
       <div className="flex flex-col items-end">
-        <span className="text-muted-foreground text-xs line-through">
-          {formatPricePEN(item.originalPrice)}
-        </span>
-        <span className="text-sm font-medium text-blue-600">{formatPricePEN(item.price)}</span>
+        {porcentajeDescuento != 0 && (
+          <span className="text-muted-foreground text-xs line-through">
+            {formatPricePEN(item.price)}
+          </span>
+        )}
+        <span className="text-sm font-medium text-blue-600">{formatPricePEN(precioDescuento)}</span>
       </div>
     </Link>
   )

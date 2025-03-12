@@ -11,6 +11,7 @@ export type CartItem = {
   originalPrice: number
   quantity: number
   images: string[]
+  discount_percentage: number
 }
 
 type CartState = {
@@ -61,7 +62,15 @@ const useCartStore = create(
 
       itemsCount: () => get().items.reduce((sum, item) => sum + item.quantity, 0),
 
-      subtotal: () => get().items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+      subtotal: () =>
+        get().items.reduce((sum, item) => {
+          let price = item.price
+          if (item.discount_percentage && item.discount_percentage != 0) {
+            const pricediscounted = item.price - item.price * (item.discount_percentage / 100)
+            price = pricediscounted
+          }
+          return sum + price * item.quantity
+        }, 0)
     }),
     {
       name: 'cart',

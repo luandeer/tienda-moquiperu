@@ -4,7 +4,7 @@ import { Badge } from 'raiz/src/common/components/ui/badge'
 import { Button } from 'raiz/src/common/components/ui/button'
 import { mockProducts } from 'raiz/src/common/data/dataTest'
 import { cn, formatPricePEN } from 'raiz/src/lib/utils'
-import useCartStore from 'raiz/src/store/useCartStore'
+import useCartStore, { CartItem } from 'raiz/src/store/useCartStore'
 import { useEffect, useState } from 'react'
 import CauroselProduct from './CarouselProduct'
 import QuantityProduct from './QuantityProduct'
@@ -28,14 +28,20 @@ const Product = ({ productHandle }: { productHandle: string }) => {
     setCantidad(items.find((item) => item.id == findProduct?.id)?.quantity || 1)
   }, [items])
 
+  // const product = {
+  //   id: findProduct?.id || '',
+  //   name: findProduct?.name || '',
+  //   variant: 'US',
+  //   price: findProduct?.price || 199,
+  //   originalPrice: 299.0,
+
+  //   quantity: cantidad,
+  //   images: findProduct?.images || []
+  // }
+
   const product = {
-    id: findProduct?.id || '',
-    name: findProduct?.name || '',
-    variant: 'US',
-    price: 199.0,
-    originalPrice: 299.0,
-    quantity: cantidad,
-    images: findProduct?.images || []
+    ...findProduct,
+    quantity: cantidad
   }
 
   // const { addItem } = useCartStore()
@@ -58,11 +64,19 @@ const Product = ({ productHandle }: { productHandle: string }) => {
   const isInCart = items.find((item) => item.id == findProduct?.id)
 
   // Calcular precio total
-  const precioUnitario = product.price
-  const precioOriginal = product.originalPrice
-  const precioTotal = precioUnitario * cantidad
-  const precioOriginalTotal = precioOriginal * cantidad
-  const ahorro = precioOriginalTotal - precioTotal
+  // const precioUnitario = product.price
+  // const precioOriginal = product.originalPrice
+  // const precioTotal = precioUnitario * cantidad
+  // const precioOriginalTotal = precioOriginal * cantidad
+  // const ahorro = precioOriginalTotal - precioTotal
+
+  const precio = product.price || 0
+  const porcentajeDescuento = product.discount_percentage || 0
+  const precioDescuento = precio - precio * (porcentajeDescuento / 100)
+
+  const precioTotal = precio * cantidad
+  const precioDescuentoTotal = precioDescuento * cantidad
+  const ahorro = precioTotal - precioDescuentoTotal
 
   return (
     <div className="grid gap-8 md:grid-cols-2">
@@ -107,15 +121,19 @@ const Product = ({ productHandle }: { productHandle: string }) => {
 
         {/* Precio */}
         <div className="flex flex-col items-center gap-2 space-x-3 rounded-xl border border-gray-200 bg-gray-50 p-4 text-center sm:flex-row sm:gap-0 sm:text-start">
-          <span className="text-3xl font-bold text-black">{formatPricePEN(precioTotal)}</span>
-          <div className="flex flex-col">
-            <span className="text-muted-foreground line-through">
-              {formatPricePEN(precioOriginalTotal)}
-            </span>
-            <Badge variant="outline" className="mt-1 border-red-500 text-red-500">
-              Ahorras {formatPricePEN(ahorro)}
-            </Badge>
-          </div>
+          <span className="text-3xl font-bold text-black">
+            {formatPricePEN(precioDescuentoTotal)}
+          </span>
+          {porcentajeDescuento != 0 && (
+            <div className="flex flex-col">
+              <span className="text-muted-foreground line-through">
+                {formatPricePEN(precioTotal)}
+              </span>
+              <Badge variant="outline" className="mt-1 border-red-500 text-red-500">
+                Ahorras {formatPricePEN(ahorro)}
+              </Badge>
+            </div>
+          )}
           <div className="flex items-center rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm sm:ml-auto">
             <Info className="mr-1.5 h-4 w-4 text-gray-500" />
             <span>Precio online</span>
@@ -124,17 +142,17 @@ const Product = ({ productHandle }: { productHandle: string }) => {
 
         {/* Cantidad */}
         <QuantityProduct
-          idProduct={product.id}
+          idProduct={product.id || ''}
           quantity={cantidad}
           setQuantity={setCantidad}
-          price={precioUnitario}
+          price={precioDescuento}
         />
 
         {/* Botones de acción */}
         <div className="flex flex-col gap-3 sm:flex-row">
           {isInCart ? (
             <Button
-              onClick={() => removeItem(product.id)}
+              onClick={() => removeItem(product.id || '')}
               className={cn(
                 'h-auto flex-1 cursor-pointer rounded-xl bg-[#e03737] py-3.5 text-white shadow-md transition-transform hover:scale-[1.02] hover:bg-[#e03737]'
               )}
@@ -144,7 +162,7 @@ const Product = ({ productHandle }: { productHandle: string }) => {
             </Button>
           ) : (
             <Button
-              onClick={() => addItem(product)}
+              onClick={() => addItem(product as CartItem)}
               className={cn(
                 'h-auto flex-1 cursor-pointer rounded-xl bg-[#0f0f0f] py-3.5 text-white shadow-md transition-transform hover:scale-[1.02]'
               )}
