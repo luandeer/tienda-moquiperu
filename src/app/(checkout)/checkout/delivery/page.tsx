@@ -1,6 +1,7 @@
 // app/checkout/delivery/page.tsx
 'use client'
 
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button } from 'raiz/src/common/components/ui/button'
 import { useCheckoutStore } from 'raiz/src/modules/checkout/store/checkout'
@@ -26,7 +27,7 @@ export default function DeliveryPage() {
             checked={deliveryMethod === 'standard'}
             onChange={() => setDeliveryMethod('standard')}
           />
-          <span>Envío Estándar ($8.00)</span>
+          <span>Entrega Estándar (S/ 8.00)</span>
         </label>
         <label className="flex items-center gap-2">
           <input
@@ -36,9 +37,20 @@ export default function DeliveryPage() {
             checked={deliveryMethod === 'express'}
             onChange={() => setDeliveryMethod('express')}
           />
-          <span>Envío Express ($12.00)</span>
+          <span> Entrega Express (S/ 12.00)</span>
         </label>
-        <Button type="submit">Continuar</Button>
+
+        <div className="mt-6 flex items-center gap-2">
+          <Link
+            href="/checkout/shipping"
+            className="flex h-9 items-center rounded-lg border border-gray-200 px-6 text-sm hover:bg-gray-50"
+          >
+            Volver
+          </Link>
+          <Button type="submit" className="rounded-lg">
+            Continuar
+          </Button>
+        </div>
       </form>
     </div>
   )

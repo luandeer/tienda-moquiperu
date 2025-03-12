@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const steps = [
-  { name: 'Shipping', path: '/checkout/shipping' },
-  { name: 'Delivery', path: '/checkout/delivery' },
-  { name: 'Payment', path: '/checkout/payment' },
-  { name: 'Review', path: '/checkout/review' }
+  { name: 'Dirección', path: '/checkout/shipping' },
+  { name: 'Método de Envío', path: '/checkout/delivery' },
+  { name: 'Pago', path: '/checkout/payment' },
+  { name: 'Revisar', path: '/checkout/review' }
 ]
 
 export default function CheckoutLayout({ children }: { children: React.ReactNode }) {
@@ -47,7 +47,7 @@ export default function CheckoutLayout({ children }: { children: React.ReactNode
       <div className="container mx-auto flex items-start gap-8 py-10">
         {/* Pasos del Checkout */}
         <div className="w-[70%]">
-          <div className="mb-6 flex items-center justify-between space-x-4">
+          <div className="mx-auto mb-6 flex max-w-lg items-center justify-between space-x-4">
             {steps.map((step, index) => {
               const isCompleted = index < currentStepIndex
               const isActive = index === currentStepIndex
@@ -77,7 +77,7 @@ export default function CheckoutLayout({ children }: { children: React.ReactNode
           </div>
 
           {/* Contenido dinámico del checkout */}
-          <div className="rounded-md bg-white p-4 shadow-md">{children}</div>
+          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-md">{children}</div>
         </div>
         {/* Order Summary */}
         <div className="w-[30%] lg:col-span-1">

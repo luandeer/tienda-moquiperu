@@ -24,7 +24,7 @@ export default function ShippingPage() {
     <div className="space-y-4">
       <h2 className="text-2xl font-semibold">Dirección de Envío</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
+        <div className="space-y-2.5">
           <Label htmlFor="firstName">Nombre</Label>
           <Input
             id="firstName"
@@ -34,7 +34,7 @@ export default function ShippingPage() {
             onChange={(e) => setLocalData({ ...localData, firstName: e.target.value })}
           />
         </div>
-        <div>
+        <div className="space-y-2.5">
           <Label htmlFor="lastName">Apellido</Label>
           <Input
             id="lastName"
@@ -44,7 +44,7 @@ export default function ShippingPage() {
             onChange={(e) => setLocalData({ ...localData, lastName: e.target.value })}
           />
         </div>
-        <div>
+        <div className="space-y-2.5">
           <Label htmlFor="address1">Dirección</Label>
           <Input
             id="address1"
@@ -54,7 +54,7 @@ export default function ShippingPage() {
             onChange={(e) => setLocalData({ ...localData, address1: e.target.value })}
           />
         </div>
-        <div>
+        <div className="space-y-2.5">
           <Label htmlFor="city">Ciudad</Label>
           <Input
             id="city"
@@ -64,7 +64,7 @@ export default function ShippingPage() {
             onChange={(e) => setLocalData({ ...localData, city: e.target.value })}
           />
         </div>
-        <div>
+        <div className="space-y-2.5">
           <Label htmlFor="postalCode">Código Postal</Label>
           <Input
             id="postalCode"
@@ -74,7 +74,7 @@ export default function ShippingPage() {
             onChange={(e) => setLocalData({ ...localData, postalCode: e.target.value })}
           />
         </div>
-        <div>
+        <div className="space-y-2.5">
           <Label htmlFor="country">País</Label>
           <Input
             id="country"
@@ -84,7 +84,9 @@ export default function ShippingPage() {
             onChange={(e) => setLocalData({ ...localData, country: e.target.value })}
           />
         </div>
-        <Button type="submit">Continuar</Button>
+        <Button type="submit" className="mt-4 rounded-lg">
+          Continuar
+        </Button>
       </form>
     </div>
   )

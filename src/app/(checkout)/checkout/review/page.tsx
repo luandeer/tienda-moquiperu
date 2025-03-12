@@ -33,7 +33,7 @@ export default function ReviewPage() {
           <strong>Método de Envío:</strong> {deliveryMethod === 'standard' ? 'Estándar' : 'Express'}
         </p>
         <p>
-          <strong>Método de Pago:</strong> {paymentMethod || 'N/A'}
+          <strong>Método de Pago:</strong> Visa
         </p>
       </div>
       <Button onClick={handleConfirm}>Confirmar Pedido</Button>
