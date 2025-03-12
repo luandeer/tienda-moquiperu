@@ -9,6 +9,14 @@ import QuantityProduct from '../../product/components/QuantityProduct'
 const CartItemRow = ({ item }: { item: CartItem }) => {
   const { removeItem } = useCart()
 
+  const cantidad = item.quantity
+  const precio = item.price || 0
+  const porcentajeDescuento = item.discount_percentage || 0
+  const precioDescuento = precio - precio * (porcentajeDescuento / 100)
+
+  const precioTotal = precio * cantidad
+  const precioDescuentoTotal = precioDescuento * cantidad
+
   return (
     <tr className="border-b">
       <td className="py-4">
@@ -48,20 +56,18 @@ const CartItemRow = ({ item }: { item: CartItem }) => {
       <td className="py-4 text-right text-sm">
         <div className="flex flex-col items-end">
           <span className="text-muted-foreground text-sm line-through">
-            {formatPricePEN(item.originalPrice)}
+            {formatPricePEN(precio)}
           </span>
-          <span className="font-medium text-blue-600">{formatPricePEN(item.price)}</span>
+          <span className="font-medium text-blue-600">{formatPricePEN(precioDescuento)}</span>
         </div>
       </td>
 
       <td className="py-4 text-right text-sm">
         <div className="flex flex-col items-end">
           <span className="text-muted-foreground text-sm line-through">
-            {formatPricePEN(item.originalPrice * item.quantity)}
+            {formatPricePEN(precioTotal)}
           </span>
-          <span className="font-medium text-blue-600">
-            {formatPricePEN(item.price * item.quantity)}
-          </span>
+          <span className="font-medium text-blue-600">{formatPricePEN(precioDescuentoTotal)}</span>
         </div>
       </td>
     </tr>
