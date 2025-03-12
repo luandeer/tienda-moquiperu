@@ -33,7 +33,7 @@ const QuantityProduct = ({
     // setCantidad((prev) => Math.max(prev - 1, 1)) // Mínimo 1 unidad
     const updated = updateQuantity(idProduct, Math.max(quantity - 1, 1))
     if (!updated && setQuantity) {
-      setQuantity((prev) => Math.max(prev - 1, 10))
+      setQuantity((prev) => Math.max(prev - 1, 1))
     }
   }
   return (

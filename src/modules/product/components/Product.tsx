@@ -7,6 +7,7 @@ import { cn, formatPricePEN } from 'raiz/src/lib/utils'
 import useCartStore from 'raiz/src/store/useCartStore'
 import { useEffect, useState } from 'react'
 import CauroselProduct from './CarouselProduct'
+import QuantityProduct from './QuantityProduct'
 // import QuantityProduct from './QuantityProduct'
 
 const Product = ({ productHandle }: { productHandle: string }) => {
@@ -122,12 +123,12 @@ const Product = ({ productHandle }: { productHandle: string }) => {
         </div>
 
         {/* Cantidad */}
-        {/* <QuantityProduct
+        <QuantityProduct
           idProduct={product.id}
           quantity={cantidad}
           setQuantity={setCantidad}
           price={precioUnitario}
-        /> */}
+        />
 
         {/* Botones de acción */}
         <div className="flex flex-col gap-3 sm:flex-row">
