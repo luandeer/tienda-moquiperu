@@ -55,18 +55,22 @@ const CartItemRow = ({ item }: { item: CartItem }) => {
 
       <td className="py-4 text-right text-sm">
         <div className="flex flex-col items-end">
-          <span className="text-muted-foreground text-sm line-through">
-            {formatPricePEN(precio)}
-          </span>
+          {porcentajeDescuento && porcentajeDescuento != 0 ? (
+            <span className="text-muted-foreground text-sm line-through">
+              {formatPricePEN(precio)}
+            </span>
+          ) : null}
           <span className="font-medium text-blue-600">{formatPricePEN(precioDescuento)}</span>
         </div>
       </td>
 
       <td className="py-4 text-right text-sm">
         <div className="flex flex-col items-end">
-          <span className="text-muted-foreground text-sm line-through">
-            {formatPricePEN(precioTotal)}
-          </span>
+          {porcentajeDescuento && porcentajeDescuento != 0 ? (
+            <span className="text-muted-foreground text-sm line-through">
+              {formatPricePEN(precioTotal)}
+            </span>
+          ) : null}
           <span className="font-medium text-blue-600">{formatPricePEN(precioDescuentoTotal)}</span>
         </div>
       </td>
