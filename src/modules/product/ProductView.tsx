@@ -16,7 +16,10 @@ const ProductView = ({ productHandle }: { productHandle: string }) => {
       {/* Barra de navegación */}
       <div className="border-b">
         <div className="container mx-auto flex w-full items-center justify-between py-4">
-          <Link href="#" className="flex w-full items-center text-gray-800">
+          <Link
+            href="/store"
+            className="flex w-full items-center text-sm text-gray-800 hover:underline hover:underline-offset-4"
+          >
             <ChevronLeft className="mr-1 h-5 w-5" />
             <span>Volver</span>
           </Link>
@@ -36,12 +39,12 @@ const ProductView = ({ productHandle }: { productHandle: string }) => {
         </div>
       </div>
 
-      <main className="mx-auto max-w-6xl p-4">
+      <main className="mx-auto mt-6 mb-4 max-w-7xl p-4">
         <Product productHandle={productHandle} />
 
         {/* Productos relacionados */}
         <div className="mt-16 mb-16">
-          <h2 className="mb-6 text-2xl font-medium text-black">También te podría gustar</h2>
+          <h2 className="mb-6 text-2xl font-semibold text-black">También te podría gustar</h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {productosRelacionados.map((product) => (
               <CardProduct key={product.id} product={product} isFeatured />

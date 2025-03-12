@@ -5,49 +5,41 @@ import { Customer } from '../types/customer'
 export const mockProducts: Product[] = [
   {
     id: 'prod_001',
-    name: 'Camiseta Deportiva',
-    description: 'Camiseta transpirable ideal para entrenamientos.',
-    category: 'Ropa',
-    images: [
-      '/banner4.jpg',
-      '/image.png',
-      '/banner4.jpg',
-      '/banner4.jpg',
-      '/banner4.jpg',
-      '/banner4.jpg',
-      '/banner4.jpg',
-      '/banner4.jpg',
-      '/banner4.jpg'
-    ],
-    variants: [
-      // Este producto tiene variantes
-      {
-        id: 'var_001',
-        name: 'Talla S - Azul',
-        price: 29.99,
-        discount_percentage: 10, // 10% de descuento
-        stock: 10,
-        sku: 'TS-AZ-001',
-        image: 'https://example.com/images/camiseta_azul.jpg'
-      },
-      {
-        id: 'var_002',
-        name: 'Talla M - Azul',
-        price: 31.99,
-        stock: 15,
-        sku: 'TM-AZ-002',
-        image: 'https://example.com/images/camiseta_azul.jpg'
-      }
-    ],
+    name: 'Conjunto diferencial',
+
+    description:
+      'El juego de piñones corona Sonalika, con una relación de 12/38 dientes, es una opción robusta y confiable para sistemas de transmisión.',
+    category: 'Últimas llegadas',
+    images: ['/producto1.jpg', '/image.png', '/banner4.jpg'],
+    price: 59.99,
+    // variants: [
+    //   {
+    //     id: 'var_001',
+    //     name: 'Talla S - Azul',
+    //     price: 29.99,
+    //     discount_percentage: 10,
+    //     stock: 10,
+    //     sku: 'TS-AZ-001',
+    //     image: 'https://example.com/images/camiseta_azul.jpg'
+    //   },
+    //   {
+    //     id: 'var_002',
+    //     name: 'Talla M - Azul',
+    //     price: 31.99,
+    //     stock: 15,
+    //     sku: 'TM-AZ-002',
+    //     image: 'https://example.com/images/camiseta_azul.jpg'
+    //   }
+    // ],
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   },
   {
     id: 'prod_002',
-    name: 'Zapatillas Running',
-    description: 'Zapatillas ultralivianas con excelente amortiguación.',
-    category: 'Ropa',
-    images: ['/banner4.jpg'],
+    name: 'Repuestos Originales Yale',
+    description: 'Repuestos originales Yale.',
+    category: 'Últimas llegadas',
+    images: ['/producto2.png'],
     price: 59.99, // Precio agregado cuando no hay variantes
     discount_percentage: 20, // 20% de descuento aplicado al precio base
     // Este producto NO tiene variantes
@@ -56,29 +48,66 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'prod_003',
-    name: 'Reloj Inteligente',
-    description: 'Smartwatch con monitor de ritmo cardíaco y notificaciones.',
-    category: 'Ropa',
-    images: ['/banner4.jpg'],
-    variants: [
-      // Este producto tiene variantes
-      {
-        id: 'var_005',
-        name: 'Negro',
-        price: 89.99,
-        stock: 5,
-        sku: 'RW-NG-001',
-        image: 'https://example.com/images/reloj_negro.jpg'
-      },
-      {
-        id: 'var_006',
-        name: 'Plata',
-        price: 92.99,
-        stock: 7,
-        sku: 'RW-PL-002',
-        image: 'https://example.com/images/reloj_plata.jpg'
-      }
-    ],
+    name: 'Juego de piñones corona sonalika',
+    description: 'Repuestos originales Yale.',
+    category: 'Últimas llegadas',
+    images: ['/producto5.jpg'],
+    price: 59.99, // Precio agregado cuando no hay variantes
+    discount_percentage: 20, // 20% de descuento aplicado al precio base
+    // Este producto NO tiene variantes
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: 'prod_004',
+    name: 'Repuestos Orginales Sonalika',
+    description: 'Repuestos originales Yale.',
+    category: 'Últimas llegadas',
+    images: ['/producto4.png'],
+    price: 59.99, // Precio agregado cuando no hay variantes
+    discount_percentage: 20, // 20% de descuento aplicado al precio base
+    // Este producto NO tiene variantes
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: 'prod_005',
+    name: 'Repuestos Originales Hyundai',
+    description: 'Repuestos originales Yale.',
+    category: 'Últimas llegadas',
+    images: ['/image.png'],
+    price: 59.99, // Precio agregado cuando no hay variantes
+    discount_percentage: 20, // 20% de descuento aplicado al precio base
+    // Este producto NO tiene variantes
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: 'prod_006',
+    name: 'Bomba Hidráulica para montacargas Yale',
+    description:
+      'Bomba Hidráulica de levante para montacarga eléctrico Yale ERP050VL. Eficiencia y duración en operaciones.',
+    category: 'Últimas llegadas',
+    images: ['/producto3.jpg'],
+    price: 89.99,
+    // variants: [
+    //   {
+    //     id: 'var_005',
+    //     name: 'Negro',
+    //     price: 89.99,
+    //     stock: 5,
+    //     sku: 'RW-NG-001',
+    //     image: 'https://example.com/images/reloj_negro.jpg'
+    //   },
+    //   {
+    //     id: 'var_006',
+    //     name: 'Plata',
+    //     price: 92.99,
+    //     stock: 7,
+    //     sku: 'RW-PL-002',
+    //     image: 'https://example.com/images/reloj_plata.jpg'
+    //   }
+    // ],
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   }

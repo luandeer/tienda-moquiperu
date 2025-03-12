@@ -47,7 +47,7 @@ const CauroselProduct = ({ imagenes }: { imagenes: string[] }) => {
   }, [activeImageIndex])
   return (
     <div className="relative w-full overflow-auto">
-      <div className="flex flex-col gap-2 md:flex-row md:gap-0">
+      <div className="flex flex-col gap-2 md:flex-row md:gap-2">
         {/* Miniaturas verticales */}
         <div className="relative order-2 md:order-1 md:w-20">
           {/* Botón de navegación superior */}
@@ -71,7 +71,7 @@ const CauroselProduct = ({ imagenes }: { imagenes: string[] }) => {
                 onClick={() => setActiveImageIndex(index)}
                 onMouseEnter={() => setActiveImageIndex(index)}
                 className={cn(
-                  'h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all duration-200 md:h-16 md:w-16',
+                  'h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all duration-200 md:h-20 md:w-20',
                   activeImageIndex === index
                     ? 'scale-105 shadow-md'
                     : 'border-transparent opacity-70 hover:opacity-100'

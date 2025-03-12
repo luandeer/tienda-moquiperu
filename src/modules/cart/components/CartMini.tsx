@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from 'react'
 import { Button } from '@/common/components/ui/button'
 import useCartStore from 'raiz/src/store/useCartStore'
 import CartDropdown from './CartDropdown'
+import { ShoppingBag } from 'lucide-react'
 
 export default function NavbarCart() {
   const { openCart, closeCart, isOpen } = useCartStore()
@@ -76,11 +77,14 @@ export default function NavbarCart() {
     >
       <Button
         // variant="ghost"
-        className="cursor-pointer gap-1 bg-transparent text-sm font-medium hover:bg-transparent"
+        className="relative cursor-pointer gap-1 bg-transparent text-sm hover:bg-transparent"
         id="cart-toggle"
         onClick={handleClick}
       >
-        Cart ({itemsCount})
+        <ShoppingBag className="size-5" />{' '}
+        <span className="absolute -top-0.5 -right-0.5 flex size-4 items-center justify-center rounded-full bg-gray-50 text-xs text-black">
+          {itemsCount}
+        </span>
       </Button>
 
       {isOpen && <CartDropdown />}

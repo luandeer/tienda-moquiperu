@@ -3,8 +3,8 @@ import { Metadata } from 'next'
 import FeaturedProducts from 'raiz/src/modules/home/components/featured-products'
 
 export const metadata: Metadata = {
-  title: 'Medusa Next.js Starter Template',
-  description: 'A performant frontend ecommerce starter template with Next.js 15 and Medusa.'
+  title: 'MaquiPeru',
+  description: 'Venta de repuestos de maquinaria pesada'
 }
 
 export default async function Home() {
@@ -12,7 +12,7 @@ export default async function Home() {
   const collections = [
     {
       id: '1',
-      title: 'Ropa',
+      title: 'Últimas llegadas',
       handle: 'ropa'
     }
   ]
@@ -22,7 +22,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <div className="py-12">
+      <div>
         <ul className="container mx-auto flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} />
         </ul>

@@ -7,7 +7,7 @@ import { cn, formatPricePEN } from 'raiz/src/lib/utils'
 import useCartStore from 'raiz/src/store/useCartStore'
 import { useEffect, useState } from 'react'
 import CauroselProduct from './CarouselProduct'
-import QuantityProduct from './QuantityProduct'
+// import QuantityProduct from './QuantityProduct'
 
 const Product = ({ productHandle }: { productHandle: string }) => {
   // esto se va a pedir con un fetch a la api por ahora esta en objectos y arrays
@@ -98,7 +98,7 @@ const Product = ({ productHandle }: { productHandle: string }) => {
 
         {/* Título y descripción */}
         <div>
-          <h1 className="text-2xl font-medium text-[#030712]">{product?.name}</h1>
+          <h1 className="text-2xl font-semibold text-[#030712]">{product?.name}</h1>
           <p className="mt-1 text-[#4b5563]">
             Los mejores precios estan aqui , el lugar mas indicado
           </p>
@@ -122,12 +122,12 @@ const Product = ({ productHandle }: { productHandle: string }) => {
         </div>
 
         {/* Cantidad */}
-        <QuantityProduct
+        {/* <QuantityProduct
           idProduct={product.id}
           quantity={cantidad}
           setQuantity={setCantidad}
           price={precioUnitario}
-        />
+        /> */}
 
         {/* Botones de acción */}
         <div className="flex flex-col gap-3 sm:flex-row">
@@ -163,10 +163,10 @@ const Product = ({ productHandle }: { productHandle: string }) => {
         </div>
 
         {/* Detalles del producto */}
-        <div>
+        {/* <div>
           <h2 className="mb-2 text-lg font-semibold">¿Qué incluye este producto?</h2>
           <p></p>
-        </div>
+        </div> */}
       </div>
     </div>
   )

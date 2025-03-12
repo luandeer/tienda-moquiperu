@@ -1,5 +1,5 @@
 'use client'
-import { CheckCircle, Circle } from 'lucide-react'
+import { CheckCircle, Circle, Undo2Icon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -24,9 +24,11 @@ export default function CheckoutLayout({ children }: { children: React.ReactNode
         <nav className="container mx-auto flex h-full items-center justify-between">
           <Link
             href="/cart"
-            className="text-small-semi flex flex-1 basis-0 items-center gap-x-2 text-white uppercase"
+            className="flex flex-1 basis-0 items-center gap-x-2 text-sm text-white hover:underline hover:underline-offset-4"
           >
-            <span className="rotate-90">⬅</span>
+            <span>
+              <Undo2Icon />
+            </span>
             <span className="hidden sm:block">Volver al carrito</span>
           </Link>
           <Link href="/" className="uppercase">

@@ -37,7 +37,7 @@ export default async function Header() {
             </CustomizeLink>
           </div>
 
-          <div className="flex h-full flex-1 basis-0 items-center justify-end gap-x-6">
+          <div className="flex h-full flex-1 basis-0 items-center justify-end gap-1">
             {isAuthenticated && (
               <div className="flex h-full items-center gap-x-6">
                 <UserDropdownMenu usuario={session?.user} />
@@ -45,8 +45,11 @@ export default async function Header() {
             )}
 
             {!isAuthenticated && (
-              <div className="flex h-full items-center gap-x-6">
-                <CustomizeLink className="text-white" href="account/login">
+              <div className="flex h-full items-center">
+                <CustomizeLink
+                  className="text-sm font-semibold text-white hover:underline hover:underline-offset-4"
+                  href="account/login"
+                >
                   Ingresar
                 </CustomizeLink>
               </div>

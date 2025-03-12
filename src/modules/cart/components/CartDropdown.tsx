@@ -22,12 +22,14 @@ const CartDropdown = () => {
 
   return (
     <div
-      className="absolute top-full right-0 z-50 mt-1 w-[350px] rounded-md border bg-white opacity-0 shadow-lg transition-opacity duration-200"
+      className="absolute top-full right-0 z-50 mt-4.5 w-[350px] rounded-md border bg-white opacity-0 shadow-lg transition-opacity duration-200"
       ref={dropdownRef}
       id="cart-dropdown"
     >
       <div className="p-4">
-        <h2 className="mb-4 text-lg font-semibold">Cart</h2>
+        <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold">
+          Carrito({items.length}) <span className="text-xs">(vista previa)</span>
+        </h2>
 
         {items.length === 0 ? (
           <p className="text-muted-foreground py-4 text-center">Your cart is empty</p>
@@ -41,7 +43,7 @@ const CartDropdown = () => {
 
             <div className="mt-4 border-t pt-4">
               <div className="flex items-center justify-between font-medium">
-                <span>Subtotal (excl. taxes)</span>
+                <span>Subtotal:</span>
                 <span>{formatPricePEN(subtotal)}</span>
               </div>
 

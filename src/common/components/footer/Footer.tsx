@@ -13,7 +13,7 @@ export default async function Footer() {
         height={400}
       />
       <div className="container mx-auto flex w-full flex-col">
-        <div className="xsmall:flex-row flex flex-col items-start justify-between gap-y-6 py-40">
+        <div className="flex flex-col items-start justify-between gap-y-6 py-40 sm:flex-row">
           <div className="flex flex-col gap-4">
             <CustomizeLink
               href="/"
@@ -34,17 +34,17 @@ export default async function Footer() {
           </div>
           <div className="text-small-regular grid grid-cols-2 gap-10 sm:grid-cols-3 md:gap-x-16">
             <div className="flex flex-col gap-y-2">
-              <span className="text-sm font-medium text-white">Categorías</span>
-              <ul className="grid grid-cols-1 gap-2" data-testid="footer-categories">
-                <li className="text-ui-fg-subtle txt-small flex flex-col gap-2">
+              <span className="text-sm font-medium text-white">Marcas</span>
+              <ul className="grid grid-cols-1 gap-2 text-sm" data-testid="footer-categories">
+                <li className="text-ui-fg-subtle flex flex-col gap-2">
                   <CustomizeLink
                     className={cn('text-gray-400 hover:text-gray-50')}
-                    href={`/categories`}
+                    href={`#`}
                     data-testid="category-link"
                   >
-                    asdsadsad
+                    Hyundai
                   </CustomizeLink>
-                  <ul className="ml-3 grid grid-cols-1 gap-2">
+                  {/* <ul className="ml-3 grid grid-cols-1 gap-2">
                     <li>
                       <CustomizeLink
                         className="text-gray-400 hover:text-gray-50"
@@ -54,19 +54,34 @@ export default async function Footer() {
                         asdsads
                       </CustomizeLink>
                     </li>
-                  </ul>
+                  </ul> */}
+                </li>
+                <li className="text-ui-fg-subtle txt-small flex flex-col gap-2">
+                  <CustomizeLink
+                    className={cn('text-gray-400 hover:text-gray-50')}
+                    href={`#`}
+                    data-testid="category-link"
+                  >
+                    Yale
+                  </CustomizeLink>
+                </li>
+                <li className="text-ui-fg-subtle txt-small flex flex-col gap-2">
+                  <CustomizeLink
+                    className={cn('text-gray-400 hover:text-gray-50')}
+                    href={`#`}
+                    data-testid="category-link"
+                  >
+                    Sonalika
+                  </CustomizeLink>
                 </li>
               </ul>
             </div>
             <div className="flex flex-col gap-y-2">
-              <span className="text-sm font-medium text-white">Collecciones</span>
-              <ul className={cn('text-ui-fg-subtle txt-small grid grid-cols-1 gap-2')}>
+              <span className="text-sm font-medium text-white">Colecciones</span>
+              <ul className={cn('text-ui-fg-subtle grid grid-cols-1 gap-2 text-sm')}>
                 <li>
-                  <CustomizeLink
-                    className="text-gray-400 hover:text-gray-50"
-                    href={`/collections/`}
-                  >
-                    asdsads{' '}
+                  <CustomizeLink className="text-gray-400 hover:text-gray-50" href={`#`}>
+                    Últimas llegadas{' '}
                   </CustomizeLink>
                 </li>
               </ul>

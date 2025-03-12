@@ -16,7 +16,7 @@ const CartSummary = () => {
 
   return (
     <div className="rounded-md border p-6">
-      <h2 className="mb-6 text-2xl font-bold">Summary</h2>
+      <h2 className="mb-6 text-2xl font-semibold">Resumen</h2>
 
       <div className="grid gap-6">
         <div className="space-y-2">
@@ -29,12 +29,12 @@ const CartSummary = () => {
           </div>
 
           <div className="flex justify-between">
-            <span>Shipping</span>
+            <span>Envío</span>
             <span>{formatPricePEN(shipping)}</span>
           </div>
 
           <div className="flex justify-between">
-            <span>Taxes</span>
+            <span>IGV (18%)</span>
             <span>{formatPricePEN(taxes)}</span>
           </div>
         </div>
@@ -47,7 +47,7 @@ const CartSummary = () => {
         </div>
 
         <Button asChild size="lg" className="w-full">
-          <Link href="/checkout">Go to checkout</Link>
+          <Link href="/checkout">Ir a comprar</Link>
         </Button>
       </div>
     </div>

@@ -28,7 +28,7 @@ export default function CartDropdownItem({ item }: { item: CartItem }) {
         <Button
           variant="ghost"
           // size="icon"
-          className="mt-1 flex w-auto cursor-pointer items-center gap-2"
+          className="mt-1 flex w-auto cursor-pointer items-center gap-2 !bg-transparent !p-0 hover:underline hover:underline-offset-4"
           onClick={(e) => {
             e.preventDefault()
             removeItem(item.id)
