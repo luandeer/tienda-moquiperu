@@ -25,7 +25,7 @@ const links = [
 ]
 export const AccountNavLinks = () => {
   return (
-    <div className="flex w-full max-w-[140px] flex-col gap-2">
+    <div className="flex w-full max-w-[150px] flex-col gap-2">
       {links.map((link) => {
         return <ActiveLinks key={link.name} {...link} />
       })}
