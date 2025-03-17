@@ -8,6 +8,7 @@ import useCartStore, { CartItem } from 'raiz/src/store/useCartStore'
 import { useEffect, useState } from 'react'
 import CauroselProduct from './CarouselProduct'
 import QuantityProduct from './QuantityProduct'
+import TryOnShoe from './Probador'
 // import QuantityProduct from './QuantityProduct'
 
 const Product = ({ productHandle }: { productHandle: string }) => {
@@ -180,7 +181,7 @@ const Product = ({ productHandle }: { productHandle: string }) => {
                 Guardar para después
               </Button> */}
         </div>
-
+        <TryOnShoe />
         {/* Detalles del producto */}
         {/* <div>
           <h2 className="mb-2 text-lg font-semibold">¿Qué incluye este producto?</h2>
