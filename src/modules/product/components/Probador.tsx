@@ -8,10 +8,17 @@ export default function TryOnShoe() {
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [cameraActive, setCameraActive] = useState(false)
-  const poseRef = useRef<mpPose.Pose | null>(null) // Actualización en el tipo
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const poseRef = useRef<any>(null) // Utilizamos any para simplificar
 
   useEffect(() => {
-    if (!cameraActive) return
+    if (!cameraActive || !videoLoaded) return
+
+    // Ajustar dimensiones del canvas para que coincidan con el video
+    if (videoRef.current && canvasRef.current) {
+      canvasRef.current.width = videoRef.current.videoWidth
+      canvasRef.current.height = videoRef.current.videoHeight
+    }
 
     // Cargar el modelo de Pose
     const pose = new mpPose.Pose({
@@ -37,22 +44,26 @@ export default function TryOnShoe() {
     }
 
     detectPose()
-  }, [cameraActive])
+  }, [cameraActive, videoLoaded])
 
   const onResults = (results: any) => {
-    if (!canvasRef.current || !results.poseLandmarks) return
+    if (!canvasRef.current) return
 
     const ctx = canvasRef.current.getContext('2d')
     if (!ctx) return
 
+    // Limpiar el canvas
     ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
+
+    if (!results.poseLandmarks) return
+
+    console.log('Landmarks detectados:', results.poseLandmarks) // Para depuración
 
     const leftAnkle = results.poseLandmarks[27] // Tobillo izquierdo
     const rightAnkle = results.poseLandmarks[28] // Tobillo derecho
 
     const shoeImg = new Image()
-    shoeImg.src = '/prueba.png' // Imagen de la zapatilla en /public/
-
+    shoeImg.src = '/prueba.png' // Asegúrate de tener esta imagen en /public/
     shoeImg.onload = () => {
       const shoeWidth = Math.abs(rightAnkle.x - leftAnkle.x) * canvasRef.current!.width * 1.5
       const shoeX = leftAnkle.x * canvasRef.current!.width
@@ -69,6 +80,9 @@ export default function TryOnShoe() {
       })
       if (videoRef.current) {
         videoRef.current.srcObject = stream
+        videoRef.current.onloadeddata = () => {
+          setVideoLoaded(true)
+        }
         setCameraActive(true)
       }
     } catch (error) {
@@ -105,7 +119,7 @@ export default function TryOnShoe() {
               top: 0,
               left: 0,
               width: '100%',
-              pointerEvents: 'none' // Evita que el canvas capture clicks
+              pointerEvents: 'none'
             }}
           />
         </>
