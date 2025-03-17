@@ -8,17 +8,19 @@ interface Props {
   name: string
   href: string
   icon?: React.FC<IconProps> // Ahora icon es un componente React
+  isActive?: boolean
 }
 
-export const ActiveLinks = ({ name, href, icon: Icon }: Props) => {
+export const ActiveLinks = ({ name, href, icon: Icon, isActive }: Props) => {
   const pathname = usePathname()
-  const isActive = pathname === href
+  const isActive1 = pathname === href
 
   return (
     <Link
       href={href}
       className={clsx(
         'flex h-auto grow items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-[#F08241] hover:text-white md:flex-none md:justify-start',
+        { 'bg-[#F08241] text-white hover:bg-[#F08241] hover:text-white': isActive1 },
         { 'bg-[#F08241] text-white hover:bg-[#F08241] hover:text-white': isActive }
       )}
     >

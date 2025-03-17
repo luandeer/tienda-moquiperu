@@ -1,7 +1,7 @@
 const OrderSummary = () => {
   return (
     <div>
-      <h2 className="text-xl font-medium">Order Summary</h2>
+      <h2 className="text-xl font-medium">Resumen de la Orden</h2>
       <div className="my-2 text-sm">
         <div className="text-base-regular text-ui-fg-base mb-2 flex items-center justify-between">
           <span>Subtotal</span>
