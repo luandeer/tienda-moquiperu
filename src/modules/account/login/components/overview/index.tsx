@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ChevronDown, ShoppingBag } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import CustomizeLink from 'raiz/src/common/components/CustomizeLink'
 import { Customer } from 'raiz/src/common/types/customer'
 import { Order } from 'raiz/src/common/types/order'
@@ -13,15 +13,6 @@ type OverviewProps = {
 const Overview = ({ customer, orders }: OverviewProps) => {
   return (
     <div>
-      <div className="flex h-full flex-col items-center justify-center">
-        <div className="relative">
-          <div className="border-t-primary border-r-primary border-b-primary/30 border-l-primary/30 animate-spin rounded-full border-4" />
-
-          <div className="absolute inset-0 flex items-center justify-center">
-            <ShoppingBag className="text-primary size-20 animate-pulse" />
-          </div>
-        </div>
-      </div>
       <div>
         <div className="text-xl-semi mb-4 flex w-full items-center justify-between">
           <span className="text-xl font-medium" data-value={customer?.first_name}>
