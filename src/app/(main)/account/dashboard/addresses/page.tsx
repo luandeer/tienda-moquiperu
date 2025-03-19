@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 }
 
 export default async function Addresses() {
+  //para ver el loading
+  // await new Promise((resolve) => setTimeout(resolve, 3000))
   return (
     <div className="w-full" data-testid="profile-page-wrapper">
       <div className="mb-8 flex flex-col gap-y-4">

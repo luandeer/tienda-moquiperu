@@ -64,7 +64,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                   orders.slice(0, 5).map((order) => {
                     return (
                       <li key={order.id} data-testid="order-wrapper" data-value={order.id}>
-                        <CustomizeLink href={`account/orders/details/${order.id}`}>
+                        <CustomizeLink href={`account/dashboard/orders/details/${order.id}`}>
                           <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-gray-50 p-4">
                             <div className="grid flex-1 grid-cols-3 grid-rows-2 gap-x-4 text-sm">
                               <span className="font-semibold">Fecha de colocación</span>

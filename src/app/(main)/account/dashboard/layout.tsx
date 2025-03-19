@@ -15,6 +15,7 @@ export default async function PageDashboard(props: { children: React.ReactNode }
   if (!session) {
     redirect('/account/login')
   }
+
   return (
     <div className="mx-auto flex max-w-4xl items-start gap-10 py-20">
       <AccountNavLinks />

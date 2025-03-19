@@ -1,6 +1,6 @@
 'use client'
 import { ActiveLinks } from './ActiveLinks'
-import { LayoutDashboard, MapPin, Package, User } from 'lucide-react'
+import { LayoutDashboard, MapPin, Package, ShoppingBasket, User } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 
 export const AccountNavLinks = () => {
@@ -26,6 +26,12 @@ export const AccountNavLinks = () => {
       href: '/account/dashboard/orders',
       icon: Package,
       isActive: pathname.includes('/account/dashboard/orders')
+    },
+    {
+      name: 'Productos',
+      href: '/account/dashboard/products',
+      icon: ShoppingBasket,
+      isActive: pathname.includes('/account/dashboard/products')
     }
   ]
   return (
