@@ -1,8 +1,8 @@
 import CustomizeLink from '@/common/components/CustomizeLink'
 import { getProductPrice } from '@/lib/utils/get-product-price'
-import { Product } from '../../types/product'
 import Thumbnail from './components/Thumbnail'
 import PreviewPrice from './components/PreviewPrice'
+import { Product } from 'raiz/src/modules/products/type/product'
 
 export default async function CardProduct({ product }: { product: Product; isFeatured?: boolean }) {
   const { cheapestPrice } = getProductPrice({

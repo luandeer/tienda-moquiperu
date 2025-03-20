@@ -3,9 +3,9 @@ import CardProduct from 'raiz/src/common/components/cardProduct/CardProduct'
 
 import SkeletonProductGrid from 'raiz/src/common/components/skeletons/templates/skeleton-product-grid'
 import { mockProducts } from 'raiz/src/common/data/dataTest'
-import { Product } from 'raiz/src/common/types/product'
 import { Suspense } from 'react'
 import { ArrowDown, ArrowUp, ShoppingBag } from 'lucide-react'
+import { Product } from 'raiz/src/modules/products/type/product'
 
 export const metadata: Metadata = {
   title: 'Store',
