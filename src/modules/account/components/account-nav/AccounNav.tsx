@@ -1,6 +1,6 @@
 'use client'
 import { ActiveLinks } from './ActiveLinks'
-import { LayoutDashboard, MapPin, Package, ShoppingBasket, User } from 'lucide-react'
+import { LayoutDashboard, ListChecks, MapPin, Package, ShoppingBasket, User } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 
 export const AccountNavLinks = () => {
@@ -32,10 +32,16 @@ export const AccountNavLinks = () => {
       href: '/account/dashboard/products',
       icon: ShoppingBasket,
       isActive: pathname.includes('/account/dashboard/products')
+    },
+    {
+      name: 'Ordenes Admin',
+      href: '/account/dashboard/admin-orders',
+      icon: ListChecks,
+      isActive: pathname.includes('/account/dashboard/admin-orders')
     }
   ]
   return (
-    <div className="flex w-full max-w-[150px] flex-col gap-2">
+    <div className="flex w-full max-w-[160px] flex-col gap-2">
       {links.map((link) => {
         return <ActiveLinks key={link.name} {...link} />
       })}

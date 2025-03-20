@@ -1,12 +1,12 @@
 export interface Address {
   id: string
-  address_name: string
-  address_1: string
+  userId: string
+  street: string
   city: string
-  province: string
-  district: string
-  postal_code?: string
-  country_code: 'PE'
-  is_default_shipping: boolean
-  is_default_billing: boolean
+  state: string
+  postalCode: string
+  country: string
+  isDefault: boolean
 }
+
+export type AddressForm = Omit<Address, 'id' | 'userId'>
