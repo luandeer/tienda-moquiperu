@@ -1,7 +1,8 @@
 'use client'
 
 import { ColumnDef } from '@tanstack/react-table'
-import { ChevronRight, Edit, Trash } from 'lucide-react'
+import { ChevronRight, Trash } from 'lucide-react'
+import { CreateProductModal } from 'raiz/src/modules/account/components/products/CreateForm'
 import { Product } from 'raiz/src/modules/products/type/product'
 
 export const columns: ColumnDef<Product>[] = [
@@ -73,9 +74,10 @@ export const columns: ColumnDef<Product>[] = [
   {
     id: 'actions',
     header: () => null, // Sin título en el encabezado
-    cell: ({ row }) => (
-      <div className="flex gap-2">
-        <button
+    cell: ({ row }) => {
+      return (
+        <div className="flex gap-2">
+          {/* <button
           onClick={(e) => {
             e.stopPropagation()
             // Lógica para editar el producto
@@ -84,19 +86,29 @@ export const columns: ColumnDef<Product>[] = [
           className="text-blue-500 hover:text-blue-600"
         >
           <Edit size={16} />
-        </button>
-        <button
-          onClick={(e) => {
-            e.stopPropagation()
-            // Lógica para eliminar el producto
-            console.log('Eliminar', row.original)
-          }}
-          className="text-red-500 hover:text-red-600"
-        >
-          <Trash size={16} />
-        </button>
-      </div>
-    ),
+        </button> */}
+          <div
+            onClick={(e) => {
+              e.stopPropagation()
+              // Lógica para editar el producto
+              console.log('Editar', row.original)
+            }}
+          >
+            <CreateProductModal product={row.original} />
+          </div>
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              // Lógica para eliminar el producto
+              console.log('Eliminar', row.original)
+            }}
+            className="text-red-500 hover:text-red-600"
+          >
+            <Trash size={16} />
+          </button>
+        </div>
+      )
+    },
     enableSorting: false // Esta columna no participa en el ordenamiento
   }
 ]

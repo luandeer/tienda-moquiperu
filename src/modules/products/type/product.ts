@@ -9,16 +9,17 @@ export type ProductVariant = {
 }
 
 export type Product = {
-  id: string
-  name: string
+  id?: string
+  name?: string
   sku?: string
-  description: string
-  category: string
-  images: string[] // Lista de imágenes del producto
+  description?: string
+  category?: string
+  images?: string[] // Lista de imágenes del producto
   stock?: number
   variants?: ProductVariant[] // Lista de variantes del producto
   price?: number // Precio único cuando no hay variantes
   discount_percentage?: number // Porcentaje de descuento a nivel de producto (opcional)
   createdAt: string // Fecha de creación en formato ISO
-  updatedAt: string // Última actualización en formato ISO
+  updatedAt?: string // Última actualización en formato ISO
+  manual?: string // Fecha de cre
 }
